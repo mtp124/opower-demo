@@ -17,7 +17,7 @@ class App extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Test Application
+            Testing Heroku App
           </a>
         </header>
       </div>
