@@ -5,6 +5,7 @@ import './animate.css';
 import Cars from './pattern-cars-2.svg';
 import Button from '@material-ui/core/Button';
 import { Grid, Paper } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 
 //Components
 //import Header from "./Electricity-Savings/Header";
@@ -32,6 +33,16 @@ const Graph = (props) => {
 }
 
 class App extends Component {
+  state = {
+    name: ' '
+  }
+
+  changeName = (newName) => {
+    this.setState({
+      name: newName
+    });
+
+  }
 
   render() {
 
@@ -48,29 +59,47 @@ class App extends Component {
       borderBottom: "2px solid lightGray",
       textAlign: "left"
     }
+
+    const buttonContainerStyles = {
+       textAlign: "center",
+       marginTop: "20px"
+    }
   
     return (
-      
+
      <Paper elevation={8} style={appContainerStyle}>
       <Grid container spacing={16}>
        <Grid item xs={12} style={headerStyle}>
-          <Header title="Your Electricity Savings"/>
+         
+        <Typography component="h2" variant="display1" gutterBottom>
+          Your Electricity Savings
+        </Typography>
       </Grid>
       <Grid item sm>
         <Paper elevation={5}>
           <Results savings="Hello"/>
         </Paper>
+          <div style={buttonContainerStyles}>
+            <Button onClick={this.changeName.bind(this, <Results/>)} className="animated bounce" variant="contained" color="inherit" size="large">
+              cars
+            </Button>
+            <Button onClick={() => this.changeName('TREES')} className="animated bounce" variant="contained" color="inherit" size="large">
+             trees
+            </Button>
+            <Button onClick={() => this.changeName('CARBON')} className="animated bounce" variant="contained" color="inherit" size="large">
+             carbon
+          </Button>
+        
+        </div>
       </Grid>
       <Grid item sm>
         <Paper elevation={5}>
           <Graph graph="There"/>
+          <div>{this.state.name}</div>
         </Paper>
       </Grid>
     </Grid>
 
-      <Button className="animated bounce" variant="contained" color="primary" >
-        Primary
-      </Button>
       </Paper>
     );
   }
