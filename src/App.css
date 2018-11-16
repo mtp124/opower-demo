@@ -1,21 +1,6 @@
-.App {
 
-}
-
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
+body {
+  background: #457B9D;
 }
 
 @keyframes App-logo-spin {
@@ -25,4 +10,34 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Car animation */
+.red-car-animation {
+  height: 70px;
+  position: relative;
+  -webkit-animation-name: redcar; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+  animation-name: redcar;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-delay: 4s;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes redcar {
+  0%   {left:-200px; top:0px;}
+  25%  {left:50px; top:0px;}
+  50%  {left:100px; top:0px;}
+  75%  {left:150px; top:0px;}
+  100% {left:180px; top:0px;}
+}
+
+/* Standard syntax */
+@keyframes redcar {
+  0%   {left:-200px; top:0px;}
+  25%  {left:50px; top:0px;}
+  50%  {left:100px; top:0px;}
+  75%  {left:150px; top:0px;}
+  100% {left:180px; top:0px;}
 }

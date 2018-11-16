@@ -4,6 +4,7 @@ import './App.css';
 import './animate.css';
 import Cars from './pattern-cars-2.svg';
 import Car from './car.svg';
+import RedCar from './red-car.svg';
 import Tree from './tree.svg';
 import Co2 from './co2.svg';
 import Button from '@material-ui/core/Button';
@@ -16,7 +17,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 //Custom components
 import Chart from './Electricity-Savings/Chart';
 
-
 //Button Icons
 const CarIcon = () => {
   return <img src={Car} alt="Car" style={{width: "30px", marginRight: "8px"}}/>
@@ -27,6 +27,7 @@ const TreeIcon = () => {
 const CarbonIcon = () => {
   return <img src={Co2} alt="Co2" style={{width: "30px", marginRight: "8px"}}/>
 }
+
 
 //Pane Headers
 const Results = (props) => {
@@ -40,17 +41,18 @@ const Graph = (props) => {
     <h2>{props.graph}</h2>
   )
 }
+
 //Pane Content
 class App extends Component {
   state = {
-    leftPaneDefault: <img src={Cars} alt="Cars" style={{width: "100%"}}/>,
-    rightPaneDefault: <Chart/>
+    leftPaneDefault: <img src={RedCar} alt="Cars" style={{width: "100%"}} className="red-car-animation"/>,
+    rightPaneDefault: <div style={{margin: "20px", paddingBottom: "20px"}} className="animated bounceInUp"><Chart/></div>
   }
 
   carsSavings = () => {
     this.setState({
       leftPaneDefault: <img src={Car} alt="Car" style={{width: "100%"}}/>,
-      rightPaneDefault: <Chart/>
+      rightPaneDefault: <div style={{margin: "20px", paddingBottom: "20px"}} className="animated bounceInUp"><Chart/></div>
     });
   }
 
@@ -107,16 +109,15 @@ class App extends Component {
            <Toolbar>
             <Typography component="h5" variant="h5" gutterBottom>
             Your Electricity Savings
-            </Typography>
+          </Typography>
           </Toolbar>
-        </AppBar>   
+         </AppBar>   
        </Grid>
       <Grid item sm className="animated bounceInLeft">
         <Paper elevation={5}>
           <Results savings="Hello"/>
           <div>{this.state.leftPaneDefault}</div>
-        </Paper>
-          
+        </Paper>       
         <div style={buttonContainerStyles}>
           <Button style={{borderTopRightRadius: "0", borderBottomRightRadius: "0"}} onClick={() => this.carsSavings((<img src={Car} alt="Car" style={{width: "100%"}}/>))} className="animated bounce" variant="contained" color="inherit" size="large">
               <CarIcon/>cars
@@ -126,15 +127,13 @@ class App extends Component {
               </Button>
             <Button style={{borderTopLeftRadius: "0", borderBottomLeftRadius: "0"}} onClick={() => this.carbonSavings('CARBON')} className="animated bounce" variant="contained" color="inherit" size="large">
               <CarbonIcon/>carbon
-          </Button>
-         
+          </Button>      
         </div>
       </Grid>
       <Grid item sm className="animated bounceInRight">
         <Paper elevation={5}>
           <Graph graph="There"/>
           <div>{this.state.rightPaneDefault}</div>
-
         </Paper>
       </Grid>
     </Grid>

@@ -3,7 +3,6 @@ import { Chart } from "react-google-charts";
  
 const EnergyChart = () => {
   return (
-    <div style={{marginLeft: "20px"}}>
     <Chart 
   width={'400px'}
   height={'300px'}
@@ -25,7 +24,7 @@ const EnergyChart = () => {
   }}
   // For tests
   rootProps={{ 'data-testid': '2' }}
-/></div>
+/>
   );
 };
 export default EnergyChart;
