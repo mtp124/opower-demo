@@ -1,0 +1,28 @@
+
+body {
+  background: #457B9D;
+}
+
+
+
+/* Car animation */
+.red-car-animation {
+  height: 375px;
+  width: 450px;
+  position: relative;
+  top: 0px;
+  left: -340px;
+  -webkit-animation-name: redcar; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+  animation-name: redcar;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+}
+
+@keyframes redcar {
+  from{ transform: translateX(0px)}
+  to{ transform: translateX(280px)}
+}
+
+
