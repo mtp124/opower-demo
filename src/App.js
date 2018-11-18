@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import 'typeface-roboto';
 import './css/App.css';
 import './css/animate.css';
-import Cars from './images/pattern-cars-2.svg';
 import Car from './images/car.svg';
 import RedCar from './images/red-car.svg';
-import CarTest from './images/car-pattern-test.svg';
 import Tree from './images/tree.svg';
 import Co2 from './images/co2.svg';
 import Button from '@material-ui/core/Button';
@@ -32,14 +30,15 @@ const CarbonIcon = () => {
 
 //Pane Headers
 const Results = (props) => {
-  return (<div>
+  return (<div style={{padding: "0 0 0 30px"}}>
     <h2>{props.savings}</h2>
     </div>
   )
 }
 const Graph = (props) => {
-  return (
+  return ( <div  style={{padding: "0 0 0 20px"}}>
     <h2>{props.graph}</h2>
+    </div>
   )
 }
 
@@ -85,7 +84,7 @@ class App extends Component {
 
     //Custom Styles
     const appContainerStyle = {
-      border: "2px solid lightGray",
+      //border: "2px solid lightGray",
       borderRadius: "10px",
       margin: "20px auto 0 auto",
       padding: "10px 40px 30px 40px",
@@ -93,7 +92,7 @@ class App extends Component {
     }
     const headerStyle = {
       color: "lightBlue",
-      //borderBottom: "2px solid lightGray",
+      borderBottom: "2px solid lightGray",
       textAlign: "left"
     }
     const buttonContainerStyles = {
