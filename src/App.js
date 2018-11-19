@@ -6,6 +6,7 @@ import Car from './images/car.svg';
 import RedCar from './images/red-car.svg';
 import Tree from './images/tree.svg';
 import Co2 from './images/co2.svg';
+import Like from './images/like.svg';
 import Button from '@material-ui/core/Button';
 import { Grid, Paper, MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
@@ -29,30 +30,37 @@ const CarbonIcon = () => {
 }
 
 //Pane Headers
-const Results = (props) => {
+const LeftPane = (props) => {
   return (<div style={{padding: "0 0 0 30px"}}>
-    <h2>{props.savings}</h2>
+    
     </div>
   )
 }
-const Graph = (props) => {
-  return ( <div  style={{padding: "0 0 0 20px"}}>
-    <h2>{props.graph}</h2>
+const RightPane = (props) => {
+  return ( <div  style={{padding: "0 0 0 20px"}}>    
+    <div><img src={Like} alt="Good Job!" className="animated zoomIn good-job"/></div>
     </div>
   )
 }
 
-//Pane Content
 class App extends Component {
   state = {
     leftPaneDefault: <CarsAnimation/>,
-    rightPaneDefault: <div style={{margin: "20px", paddingBottom: "20px"}} className="animated bounceInUp"><Chart/></div>
+    rightPaneDefault: <div style={{margin: "20px", paddingBottom: "20px"}} className="animated bounceInDown"><Chart/></div>
   }
 
+  //Pane Content
+  componentDidMount() {
+    this.setState ({
+      leftPaneDefault: <CarsAnimation/>,
+      rightPaneDefault: <div style={{margin: "20px", paddingBottom: "20px"}} className="animated bounceInDown"><Chart/></div>
+    }
+   ) 
+  }
   carsSavings = () => {
     this.setState({
-      leftPaneDefault: <img src={RedCar} alt="Cars" style={{width: "100%"}} className="red-car-animation"/>,
-      rightPaneDefault: <div style={{margin: "20px", paddingBottom: "20px"}} className="animated bounceInUp"><Chart/></div>
+      leftPaneDefault: <div className="animated bounceInDown"><CarsAnimation/></div>,
+      rightPaneDefault: <div style={{margin: "20px", paddingBottom: "20px"}} className="animated bounceInDown"><Chart/></div>
     });
   }
 
@@ -84,16 +92,18 @@ class App extends Component {
 
     //Custom Styles
     const appContainerStyle = {
-      //border: "2px solid lightGray",
       borderRadius: "10px",
       margin: "20px auto 0 auto",
-      padding: "10px 40px 30px 40px",
-      maxWidth: "1000px"
+      padding: "20px 40px 30px 40px",
+      maxWidth: "1000px",
+      background: "#457B9D"
     }
     const headerStyle = {
       color: "lightBlue",
-      borderBottom: "2px solid lightGray",
-      textAlign: "left"
+      borderBottom: "2px solid #fff",
+      textAlign: "left",
+      height: "60px",
+      marginBottom: "25px"
     }
     const buttonContainerStyles = {
        textAlign: "center",
@@ -105,13 +115,13 @@ class App extends Component {
       <Paper elevation={8} style={appContainerStyle}>
         <Grid container spacing={16}>
           <Grid item xs={12} style={headerStyle}>
-            <Typography component="h5" variant="h5">
+            <Typography component="h5" variant="h5" style={{color: "#FFF"}}>
             Your Electricity Savings
           </Typography>
        </Grid>
       <Grid item sm className="animated bounceInLeft">
         <Paper elevation={5}>
-          <Results savings="Hello"/>
+          <LeftPane title="Hello"/>
           <div style={{overflow: "hidden"}}>{this.state.leftPaneDefault}</div>
         </Paper>       
         <div style={buttonContainerStyles}>
@@ -128,7 +138,7 @@ class App extends Component {
       </Grid>
       <Grid item sm className="animated bounceInRight">
         <Paper elevation={5}>
-          <Graph graph="There"/>
+          <RightPane title="There"/>
           <div>{this.state.rightPaneDefault}</div>
         </Paper>
       </Grid>

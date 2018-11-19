@@ -1,9 +1,23 @@
 
 body {
-  background: #457B9D;
+  background: #0B2139;
 }
 
+/*Like*/
+.good-job {
+  width: 40px;
+  margin-bottom: -18px;
+  padding-top: 10px;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-delay: 7s;
+  animation-name: welldone;
+}
 
+@keyframes welldone {
+ 0% { transform: scale(1.0)};
+ 100% { transform: scale(2.0)};
+}
 
 /* Car animation */
 .red-car-animation {
