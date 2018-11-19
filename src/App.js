@@ -6,13 +6,10 @@ import Car from './images/car.svg';
 import RedCar from './images/red-car.svg';
 import Tree from './images/tree.svg';
 import Co2 from './images/co2.svg';
-import Like from './images/like.svg';
 import Button from '@material-ui/core/Button';
 import { Grid, Paper, MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import blue from '@material-ui/core/colors/blue';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 
 //Custom components
 import Chart from './components/Chart';
@@ -38,7 +35,7 @@ const LeftPane = (props) => {
 }
 const RightPane = (props) => {
   return ( <div  style={{padding: "0 0 0 20px"}}>    
-    <div><img src={Like} alt="Good Job!" className="animated zoomIn good-job"/></div>
+    
     </div>
   )
 }
@@ -46,21 +43,21 @@ const RightPane = (props) => {
 class App extends Component {
   state = {
     leftPaneDefault: <CarsAnimation/>,
-    rightPaneDefault: <div style={{margin: "20px", paddingBottom: "20px"}} className="animated bounceInDown"><Chart/></div>
+    rightPaneDefault: <div style={{margin: "0 20px 0 20px", paddingBottom: "20px"}} className="animated bounceInDown"><Chart/></div>
   }
 
   //Pane Content
   componentDidMount() {
     this.setState ({
       leftPaneDefault: <CarsAnimation/>,
-      rightPaneDefault: <div style={{margin: "20px", paddingBottom: "20px"}} className="animated bounceInDown"><Chart/></div>
+      rightPaneDefault: <div style={{margin: "0 20px 0 20px", paddingBottom: "20px"}} className="animated bounceInDown"><Chart/></div>
     }
    ) 
   }
   carsSavings = () => {
     this.setState({
       leftPaneDefault: <div className="animated bounceInDown"><CarsAnimation/></div>,
-      rightPaneDefault: <div style={{margin: "20px", paddingBottom: "20px"}} className="animated bounceInDown"><Chart/></div>
+      rightPaneDefault: <div style={{margin: "0 20px 0 20px", paddingBottom: "20px"}} className="animated bounceInDown"><Chart/></div>
     });
   }
 
@@ -125,13 +122,13 @@ class App extends Component {
           <div style={{overflow: "hidden"}}>{this.state.leftPaneDefault}</div>
         </Paper>       
         <div style={buttonContainerStyles}>
-          <Button style={{borderTopRightRadius: "0", borderBottomRightRadius: "0"}} onClick={() => this.carsSavings((<img src={RedCar} alt="Cars" style={{width: "400px"}} className="red-car-animation"/>))} className="animated bounce" variant="contained" color="inherit" size="large">
+          <Button style={{borderTopRightRadius: "0", borderBottomRightRadius: "0"}} onClick={() => this.carsSavings()} className="animated bounce" variant="contained" color="inherit" size="large">
               <CarIcon/>cars
             </Button>
-              <Button style={{borderRadius: "0"}} onClick={() => this.treesSavings((<img src={Tree} alt="Tree" style={{width: "100%"}}/>))} className="animated bounce" variant="contained" color="inherit" size="large">
+              <Button style={{borderRadius: "0"}} onClick={() => this.treesSavings()} className="animated bounce" variant="contained" color="inherit" size="large">
                 <TreeIcon/>trees
               </Button>
-            <Button style={{borderTopLeftRadius: "0", borderBottomLeftRadius: "0"}} onClick={() => this.carbonSavings('CARBON')} className="animated bounce" variant="contained" color="inherit" size="large">
+            <Button style={{borderTopLeftRadius: "0", borderBottomLeftRadius: "0"}} onClick={() => this.carbonSavings()} className="animated bounce" variant="contained" color="inherit" size="large">
               <CarbonIcon/>carbon
           </Button>      
         </div>
