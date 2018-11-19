@@ -3,7 +3,8 @@ import 'typeface-roboto';
 import './css/App.css';
 import './css/animate.css';
 import Car from './images/car.svg';
-import RedCar from './images/red-car.svg';
+import PlantATree from './images/BenefitsOfTrees.png';
+import CarbonCycle from './images/carbon-cycle.png';
 import Tree from './images/tree.svg';
 import Co2 from './images/co2.svg';
 import Button from '@material-ui/core/Button';
@@ -12,8 +13,10 @@ import Typography from '@material-ui/core/Typography';
 import blue from '@material-ui/core/colors/blue';
 
 //Custom components
-import Chart from './components/Chart';
 import CarsAnimation from './components/CarsAnimation';
+import Chart from './components/Chart';
+import TreeChart from './components/TreeChart';
+
 
 //Button Icons
 const CarIcon = () => {
@@ -63,15 +66,15 @@ class App extends Component {
 
   treesSavings = () => {
     this.setState({
-      leftPaneDefault: <img src={Co2} alt="Co2" style={{width: "100%"}}/>,
-      rightPaneDefault: <img src={Tree} alt="Tree" style={{width: "100%"}}/>
+      leftPaneDefault: <img src={PlantATree} alt="Plant Trees" style={{width: "70%", margin: "10%", paddingLeft: "5%"}} className="animated bounceInDown"/>,
+      rightPaneDefault: <div style={{margin: "0 20px 0 20px", padding: "20px 0 20px 0"}} className="animated bounceInDown"><TreeChart/></div>
     });
   }
 
   carbonSavings = () => {
     this.setState({
-      leftPaneDefault: <img src={Car} alt="Car" style={{width: "100%"}}/>,
-      rightPaneDefault: <img src={Co2} alt="Co2"style={{width: "100%"}}/>
+      leftPaneDefault: <img src={CarbonCycle} alt="Carbon Cycle" style={{width: "80%", margin: "10%"}} className="animated bounceInDown"/>,
+      rightPaneDefault: <div style={{margin: "0 20px 0 20px", padding: "20px 0 20px 0"}} className="animated bounceInDown"><TreeChart/></div>
     });
   }
 
