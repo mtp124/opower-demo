@@ -17,7 +17,6 @@ import CarsAnimation from './components/CarsAnimation';
 import Chart from './components/Chart';
 import TreeChart from './components/TreeChart';
 import CO2Chart from './components/CO2Chart';
-import Intro from './components/Intro';
 
 //Button Icons
 const CarIcon = () => {
