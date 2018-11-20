@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const introBlockTitle = {
     fontWeight: "200",
     color: "#444"
@@ -12,7 +11,7 @@ const introBlockText = {
     color: "#666"
 }
 
-const ChartIntro = (props) => {
+const Intro = (props) => {
   return (
  <div>
     <div style={{introBlockTitle}}>{props.title}</div><br />
@@ -21,4 +20,4 @@ const ChartIntro = (props) => {
 
 }
 
-export default ChartIntro;
+export default Intro;

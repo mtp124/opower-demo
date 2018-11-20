@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Bar, Pie, Doughnut, Line} from 'react-chartjs-2';
-import ChartIntro from './Chart-intro';
+import Intro from './Intro';
 import Like from '../images/like.svg';
 import LinearProgress from '@material-ui/core/LinearProgress';
 
@@ -39,9 +39,9 @@ class Chart extends Component {
 
   render() {
     return (
-      <div>
+      <div className="animated bounceInDown">
         <div><img src={Like} alt="Good Job!" className="animated zoomIn good-job"/></div>
-      <ChartIntro title="Last Month, You Saved Enough Energy To Take Six Cars Off The Road!" subtitle="Great job! You used 573 KWH last month compared to 791 KWH in the same month last year. The resulting savings is enought to offset the energy consumption of six average-size cars for one month."/>
+      <Intro title="Last Month, You Saved Enough Energy To Take Six Cars Off The Road!" subtitle="Great job! You used 573 KWH last month compared to 791 KWH in the same month last year. The resulting savings is enought to offset the energy consumption of six average-size cars for one month."/>
       <div>
       <Bar
         data={this.state.chartData}

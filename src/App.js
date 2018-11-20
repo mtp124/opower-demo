@@ -16,7 +16,8 @@ import blue from '@material-ui/core/colors/blue';
 import CarsAnimation from './components/CarsAnimation';
 import Chart from './components/Chart';
 import TreeChart from './components/TreeChart';
-
+import CO2Chart from './components/CO2Chart';
+import Intro from './components/Intro';
 
 //Button Icons
 const CarIcon = () => {
@@ -36,6 +37,7 @@ const LeftPane = (props) => {
     </div>
   )
 }
+
 const RightPane = (props) => {
   return ( <div  style={{padding: "0 0 0 20px"}}>    
     
@@ -66,15 +68,15 @@ class App extends Component {
 
   treesSavings = () => {
     this.setState({
-      leftPaneDefault: <img src={PlantATree} alt="Plant Trees" style={{width: "70%", margin: "10%", paddingLeft: "5%"}} className="animated bounceInDown"/>,
-      rightPaneDefault: <div style={{margin: "0 20px 0 20px", padding: "20px 0 20px 0"}} className="animated bounceInDown"><TreeChart/></div>
+      leftPaneDefault: <div><img src={PlantATree} alt="Plant Trees" style={{width: "70%", margin: "10%", paddingLeft: "5%"}} className="animated bounceInDown"/></div>,
+      rightPaneDefault: <div style={{margin: "0 20px 0 20px", padding: "20px 0 20px 0"}}><TreeChart/></div>
     });
   }
 
   carbonSavings = () => {
     this.setState({
       leftPaneDefault: <img src={CarbonCycle} alt="Carbon Cycle" style={{width: "80%", margin: "10%"}} className="animated bounceInDown"/>,
-      rightPaneDefault: <div style={{margin: "0 20px 0 20px", padding: "20px 0 20px 0"}} className="animated bounceInDown"><TreeChart/></div>
+      rightPaneDefault: <div style={{margin: "0 20px 0 20px", padding: "20px 0 20px 0"}}><CO2Chart/></div>
     });
   }
 
